@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For You</title>
+
+<style>
+  body {
+    background: #fff0f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .envelope {
+    font-size: 80px;
+    cursor: pointer;
+    margin-top: 60px;
+  }
+
+  .question {
+    display: none;
+    margin-top: 30px;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #yes {
+    background: #ff9aa2;
+    color: white;
+  }
+
+  #no {
+    background: #cfcfcf;
+    position: absolute;
+  }
+
+  .content {
+    display: none;
+    margin-top: 30px;
+  }
+
+  .dino {
+    font-size: 70px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio id="bgm" loop>
+  <source src="season.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Envelope -->
+<div class="envelope" onclick="openEnvelope()">💌</div>
+
+<!-- Question -->
+<div class="question" id="question">
+  <p>Hi, I know you don’t know me, but are you willing to read my confession?</p>
+  <button id="yes" onclick="showConfession()">Yes</button>
+  <button id="no" onmouseover="moveNo()">No</button>
+</div>
+
+<!-- Confession -->
+<div class="content" id="content">
+  <div class="dino">🦖💗</div>
+  <div class="text">
+    <p>
+      I’ve been admiring you for about three years na ata.
+    </p>
+    <p>
+      I just want to be straightforward. Please learn how to lean on someone’s
+      shoulder when you’re struggling huhu. I’ve always noticed your reposts,
+      and I know I shouldn’t have stalked you. Pero, I didn’t do that for my own
+      pleasure, but to reassure myself na you’re okay.
+    </p>
+    <p>
+      This might sound weird to you, but I’ve always included you in my prayers.
+    </p>
+    <p>
+      That’s all I wanted to say. Stay positive, Lex.
+      I hope you can find someone who can meet all your needs.
+    </p>
+    <p><strong>That’s all. Have a great day, Lex.</strong></p>
+  </div>
+</div>
+
+<script>
+  function openEnvelope() {
+    document.querySelector(".envelope").style.display = "none";
+    document.getElementById("question").style.display = "block";
+  }
+
+  function showConfession() {
+    document.getElementById("question").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("bgm").play();
+  }
+
+  function moveNo() {
+    const noBtn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+</script>
+
+</body>
+</html>
